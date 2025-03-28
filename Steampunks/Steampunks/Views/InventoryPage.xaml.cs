@@ -101,6 +101,11 @@ namespace Steampunks.Views
                 if (e.ClickedItem is Item selectedItem)
                 {
                     ViewModel.SelectedItem = selectedItem;
+                    // Show the ItemDetailsDialog
+                    ItemDetailsDialog.ShowAsync().Completed = (asyncInfo, status) =>
+                    {
+                        // No additional actions required, it will close when the button is clicked
+                    };
                 }
             }
             catch (Exception ex)
@@ -130,5 +135,7 @@ namespace Steampunks.Views
                 Debug.WriteLine($"Stack trace: {ex.StackTrace}");
             }
         }
+
+        
     }
 } 
